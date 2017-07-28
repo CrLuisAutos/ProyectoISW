@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LaEsmeraldaCostaRica.Models.Bolsa_por_caja>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bolsa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Caja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.producto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fec_entrada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fech_vencimiento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bolsa.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Caja.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.producto.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fec_entrada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fech_vencimiento)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

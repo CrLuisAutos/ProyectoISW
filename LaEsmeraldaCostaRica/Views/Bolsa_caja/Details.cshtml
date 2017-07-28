@@ -1,0 +1,74 @@
+﻿@model LaEsmeraldaCostaRica.Models.Bolsa_por_caja
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bolsa_por_caja</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bolsa.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bolsa.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caja.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caja.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producto.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fec_entrada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fec_entrada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fech_vencimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fech_vencimiento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
