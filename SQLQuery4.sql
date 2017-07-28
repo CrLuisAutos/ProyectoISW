@@ -28,11 +28,6 @@ id_producto int not null,
 fec_entrada date not null,
 fech_vencimiento date not null
 )
-alter table Bolsa_por_caja
---add constraint pk_bolsa_caja primary key(Id)
---add constraint fk_bolsa foreign key (id_bolsa) references bolsa(id) 
---add constraint fk_caja foreign key (id_caja) references caja(id)
---add constraint fk_producto foreign key (id_producto) references producto(id)
 create table producto(
 id int identity (1,1) not null,
 nombre varchar(30) not null,
@@ -41,3 +36,12 @@ peso int not null
 )
 alter table producto
 add constraint pk_producto primary key(Id)
+
+
+
+--esto de ultimo linea por linea
+alter table Bolsa_por_caja
+--add constraint pk_bolsa_caja primary key(Id)
+--add constraint fk_bolsa foreign key (id_bolsa) references bolsa(id) 
+--add constraint fk_caja foreign key (id_caja) references caja(id)
+--add constraint fk_producto foreign key (id_producto) references producto(id)
