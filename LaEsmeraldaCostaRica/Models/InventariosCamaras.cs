@@ -65,7 +65,7 @@ namespace LaEsmeraldaCostaRica.Models
 
             modelBuilder.Entity<Producto>()
                 .HasMany(e => e.Bolsa_por_caja)
-                .WithRequired(e => e.producto)
+                .WithRequired(e => e.Producto)
                 .HasForeignKey(e => e.id_producto)
                 .WillCascadeOnDelete(false);
         }

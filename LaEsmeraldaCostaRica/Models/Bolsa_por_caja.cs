@@ -33,13 +33,13 @@ namespace LaEsmeraldaCostaRica.Models
 
         [Column(TypeName = "date")]
         [DisplayName("Fecha de entrada")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime fec_entrada { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime? fec_entrada { get; set; }
 
         [Column(TypeName = "date")]
         [DisplayName("Fecha de Vencimiento")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime fech_vencimiento { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime? fech_vencimiento { get; set; }
 
         public ICollection<Caja> ListCajas;
         public ICollection<Bolsa> ListBolsa;
