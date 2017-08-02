@@ -40,10 +40,13 @@ namespace LaEsmeraldaCostaRica.Controllers
         // GET: Bolsa_caja/Create
         public ActionResult Create()
         {
+            Bolsa_por_caja bc = new Bolsa_por_caja();
+            bc.fec_entrada = DateTime.Today;
+            bc.fech_vencimiento = DateTime.Today.AddYears(1);
             ViewBag.id_bolsa = new SelectList(db.Bolsas, "id", "codigo");
             ViewBag.id_caja = new SelectList(db.Cajas, "id", "codigo");
             ViewBag.id_producto = new SelectList(db.productoes, "id", "nombre");
-            return View();
+            return View(bc);
         }
 
         // POST: Bolsa_caja/Create

@@ -27,17 +27,18 @@ namespace LaEsmeraldaCostaRica.Models
         public int id_producto { get; set; }
 
         [Required(ErrorMessage = "Requerido")]
+        [Range(1,1000, ErrorMessage ="Mínimo 1 - Máximo 1000")]
         [DisplayName("Cantidad")]
         public int cantidad { get; set; }
 
         [Column(TypeName = "date")]
         [DisplayName("Fecha de entrada")]
-        [ReadOnly(true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime fec_entrada { get; set; }
 
         [Column(TypeName = "date")]
-        [DisplayName("Fecha de vencimiento")]
-        [ReadOnly(true)]
+        [DisplayName("Fecha de Vencimiento")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime fech_vencimiento { get; set; }
 
         public ICollection<Caja> ListCajas;
@@ -48,6 +49,6 @@ namespace LaEsmeraldaCostaRica.Models
 
         public virtual Caja Caja { get; set; }
 
-        public virtual Producto producto { get; set; }
+        public virtual Producto Producto { get; set; }
     }
 }
