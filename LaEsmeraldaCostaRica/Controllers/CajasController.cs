@@ -10,6 +10,7 @@ using LaEsmeraldaCostaRica.Models;
 
 namespace LaEsmeraldaCostaRica.Controllers
 {
+    [Authorize]
     public class CajasController : Controller
     {
         private InventariosCamaras db = new InventariosCamaras();

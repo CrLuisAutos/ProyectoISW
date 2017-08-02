@@ -36,7 +36,7 @@ namespace LaEsmeraldaCostaRica.Models
         public DateTime fec_entrada { get; set; }
 
         [Column(TypeName = "date")]
-        [DisplayName("Fecha de venciemiento")]
+        [DisplayName("Fecha de vencimiento")]
         [ReadOnly(true)]
         public DateTime fech_vencimiento { get; set; }
 
