@@ -98,10 +98,12 @@ namespace LaEsmeraldaCostaRica.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Caja caja = db.Cajas.Find(id);
+
             if (caja == null)
             {
                 return HttpNotFound();
             }
+
             return View(caja);
         }
 

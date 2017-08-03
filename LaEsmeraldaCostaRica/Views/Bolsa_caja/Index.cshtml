@@ -1,14 +1,90 @@
-﻿@model IEnumerable<LaEsmeraldaCostaRica.Models.Bolsa_por_caja>
+﻿@model IEnumerable<Bolsa_por_caja>
+@using LaEsmeraldaCostaRica.Models
 
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Inventario</h2>
+@{
+    
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-<p>
-    @Html.ActionLink("Nuevo +", "Create")
-</p>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Productos Prontos a Vencer</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.codigo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Bolsa)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Caja)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Producto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cantidad)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.fec_entrada)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.fech_vencimiento)
+                            </th>
+                        </tr>
+                        @foreach (var item in ViewData["vencidos"] as IList<Bolsa_por_caja>)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Bolsa.codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Caja.codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Producto.nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.cantidad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.fec_entrada)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.fech_vencimiento)
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                        </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+<div class="form-group">
+    <p class="pull-left">
+        @Html.ActionLink("Nuevo +", "Create")
+    </p>
+    <button type="button" class="btn btn-warning btn-xs pull-right" data-toggle="modal" data-target="#myModal">Ver Productos Prontos a vencer</button>
+</div>
+
 <table class="table">
     <tr>
         <th>

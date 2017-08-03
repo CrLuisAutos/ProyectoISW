@@ -17,7 +17,12 @@ namespace LaEsmeraldaCostaRica.Controllers
 
         // GET: Bolsa_caja
         public ActionResult Index()
-        {
+        { 
+
+            var date = DateTime.Today.AddMonths(1);
+            List<Bolsa_por_caja> bc = new List<Bolsa_por_caja>();
+            bc.AddRange((IEnumerable<Bolsa_por_caja>)db.Bolsa_por_caja.Where(u => u.fech_vencimiento < date).ToList());
+            ViewData["vencidos"] = bc;
             var bolsa_por_caja = db.Bolsa_por_caja.Include(b => b.Bolsa).Include(b => b.Caja).Include(b => b.Producto);
             return View(bolsa_por_caja.ToList());
         }
